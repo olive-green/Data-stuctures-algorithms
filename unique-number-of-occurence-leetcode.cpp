@@ -4,7 +4,8 @@
 using namespace std;
 
 void distinct(int arr[],int n){
-    set<int> s;
+      //first approach
+        set<int> s;
         map<int,int>hm;
         for(int i=0;i<arr.size();++i){
             if(hm.find(arr[i])==hm.end()){
@@ -21,6 +22,22 @@ void distinct(int arr[],int n){
             return true;
         }
         return false;
+        
+        //above approach in sort format
+        unordered_map<int,int> m;
+        unordered_set<int> s;
+        for(auto x:arr) m[x]++;
+        for(auto x:m) s.insert(x.second);
+        return m.size()==s.size();
+        
+// We can improve this for the average case by checking the result of s.insert(), which returns false if an element is already there.  
+            for (auto n : arr) ++m[n];
+            for (auto& p : m)
+                 if (!s.insert(p.second).second) return false; //so here we check if the newly inserted element is already exists or not, if yes then .second returns false 
+//The single element versions (1) return a pair, with its member pair::first set to an iterator pointing to either 
+// the newly inserted element or to the equivalent element already in the set. The pair::second element in the pair is set to true if a new element was inserted or false if an equivalent element already existed.
+            return true;
+
 }
 
 int main ()
