@@ -63,8 +63,15 @@ void insert_at_pos(Node* &head,int position,int key){
         prevNode=prevNode->next;
         count++;
     }
-    newNode->next=prevNode->next;
     newNode->prev=prevNode;
+    //if newNode is inserted at last position then there is no next node so we don't need to write prevNode->next->prev=newNode;
+    if(prevNode->next==NULL){
+        prevNode->next=newNode;
+        return;
+    }
+    //else
+          
+    newNode->next=prevNode->next;
     
     prevNode->next->prev=newNode;
     
