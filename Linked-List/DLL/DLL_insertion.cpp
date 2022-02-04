@@ -18,32 +18,7 @@ class Node{
 };
 
 
-// void delete_by_value(Node* &head,int value){
-//     Node* valueNode=head;
-//     Node* prev=NULL;
-//     while(valueNode!=NULL){
-//         if(valueNode->data==value){
-//             break;
-//         }
-//         prev=valueNode;
-//         valueNode=valueNode->next;
-//     }
-//     if(valueNode==NULL){
-//         cout<<"Element does not exist"<<endl;
-//         return;
-//     }
-  
-//     if(valueNode==head){
-//         head=head->next;
-//         delete valueNode;
-//         return;
-//     }
-    
-//     //else if it not head Node
-//     prev->next=valueNode->next;
-//     delete valueNode;
-    
-// }
+
 
 void append(Node* &head,int key){
     Node* newNode=new Node(key);
